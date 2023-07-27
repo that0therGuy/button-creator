@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+    <h1 align="center">Button Creater+</h1>
+    <h2 align="center">by cubet studios</h2>
+    <div class="UI" style="text-align:center;"> 
+        <textarea spellcheck="false"style="padding:5px;font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;"id="sarch"type="search" placeholder="enter CSS here... ie: background-color:red;"></textarea>
+        <textarea spellcheck="false"style="padding:5px;font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;"id="hover"type="search" placeholder="enter CSS hover animations here..."></textarea>
+        
+
+
+    </div>
+
+    <div class="modes">
+        <button id="button" onclick="create()">create</button>
+    </div>
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <script>
+        var value=0;
+        window.sr = ScrollReveal();
+        sr.reveal('h1', {duration: 1500, origin: 'bottom', distance: '-100px'});
+        sr.reveal('button', {duration: 1500, origin: 'top', distance: '-100px'});
+        sr.reveal('#sarch', {duration: 1500, origin: 'right', distance: '-200px'});
+        sr.reveal('#hover', {duration: 1500, origin: 'left', distance: '-200px'});
+        sr.reveal('h2', {duration: 3000, origin: 'bottom', distance: '-200px'});
+
+
+
+        function create(){
+            value++;
+            const trial = document.createElement("label");
+            const para = document.createElement("button");
+            const hr = document.createElement("hr");
+            var bname = prompt("Please enter name", "button");
+            var blink = prompt("Please enter link", "google.com");
+            var css = document.getElementById('sarch').value;
+            console.log(value);
+            para.innerHTML = bname;
+            value.style="color:red;";
+            trial.innerHTML = "Trial: "+value;
+            para.setAttribute("style",css);
+            trial.setAttribute("style","font-weight:bolder;font-size:50px;display:block;margin:10px;text-align:center;color:darkslategrey;font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;");
+            document.body.appendChild(hr);
+
+            document.body.appendChild(trial);
+            sr.reveal('label', {duration: 350, origin: 'top', distance: '-200px'});
+
+            document.body.appendChild(para);
+
+            para.addEventListener ("click", function() {
+                
+                window.open("http://www."+blink,'_blank');
+                return false;});
+            para.addEventListener ("mouseover", function() {
+                var hover= document.getElementById("hover").value;
+                console.log(hover);
+                if(hover != ""){
+                    para.style=hover;
+                }
+                
+            });
+            para.addEventListener ("mouseout", function() {
+                para.style=css;
+            });
+
+        }
+        function dark(){
+            document.body.style="background-color:darkslategray;"
+        }
+
+        
+
+        
+ 
+        
+
+    </script>
+    <style>
+        .ui{
+            display:inline-block;
+            margin:5px;
+        }
+        .modes{
+            margin:0px;
+            padding:2px;
+            text-align:center;
+        }
+        #button{
+            background-color:grey;
+            border:1px solid gray;
+            color:aliceblue;
+            font-size:15px;
+            
+        }
+        #button:hover{
+            background-color:lightslategrey;
+            transition:all 1s;
+        }
+        textarea{
+            background-color:lightyellow;
+            color:black;
+            font-family:monospace;
+            font-size:15px;
+            border-radius:5px;
+            border : 1px solid black;
+            margin-top:10px;
+        }
+        #button{
+            font-size:20px;
+            margin:0px;
+            border-radius:5px;
+            transition:all ease-in 1s;
+        }
+        h1{
+            color:darkslategrey;
+            font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size:60px;
+        }
+        html{
+            background-image: linear-gradient(to bottom right, antiquewhite, white);
+
+        }
+        h2{
+            color:darkslategrey;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+</body>
+</html>
